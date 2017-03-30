@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <style>
+    tr.table-striped {
+        background-color: #ecf6fc;
+    }
+    
+    tr.table-row-highlight {
+        background-color: #bcd4ec;
+    }
+    
+    td,
+    th {
+        padding: 8px;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+    $(function() { // ready function 
+        $("table.striped tr:odd").addClass("table-striped");
+        $("table.striped tr")
+            .on('mouseover', function() {
+                $(this).addClass("table-row-highlight");
+            })
+            .on('mouseout', function() {
+                $(this).removeClass("table-row-highlight");
+            });
+
+
+    }); // end ready function
+    </script>
+</head>
+
+<body>
+    <table class='striped'>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Doug</td>
+                <td>123 Main</td>
+                <td>Kansas City</td>
+                <td>MO</td>
+            </tr>
+            <tr>
+                <td>Doug</td>
+                <td>234 Main</td>
+                <td>Kansas City</td>
+                <td>MO</td>
+            </tr>
+            <tr>
+                <td>Doug</td>
+                <td>345 Main</td>
+                <td>Kansas City</td>
+                <td>MO</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

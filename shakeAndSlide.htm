@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <style>
+    #shakeMe {
+        position: relative;
+        display: none;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+    function shakeAndSlide() {
+        $('#shakeMe')
+            .effect('shake', {
+                times: 6,
+                distance: 5
+            }, 50)
+            .animate({
+                left: '+=50'
+            }, 2000, 'easeOutElastic');
+    }
+    $(function() { // jQuery document ready function
+        $('#shakeMe').hide().css('display', '').fadeIn(4000);
+        var shake = setInterval(shakeAndSlide, 5000);
+
+        $('#shakeMe').on('click', function() {
+            clearInterval(shake);
+        })
+    }); // jQuery document ready function end
+    </script>
+</head>
+
+<body>
+    <div id="shakeMe">
+        <img src="images/dog1.jpg" />
+    </div>
+</body>
+
+</html>

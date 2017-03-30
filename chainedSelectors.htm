@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <style>
+    # CSS code here
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+    $(function() { // ready function 
+        console.log('jQuery is active.'); // test
+        $('a').has('b').click(function() {
+            alert("You had something bold in the link.");
+        });
+        $('a').not('.special').click(function() {
+            alert("You weren't special.");
+        });
+        $('a').last().on('click', function() {
+            alert("You were the last link selected.");
+        });
+        $('a').eq(1).on('click', function() {
+            alert("You were the 2nd link selected.");
+        });
+
+    }); // end ready function
+    </script>
+</head>
+
+<body>
+    <a href="http://bing.com">Click <b>me</b></a>
+    <br/>
+    <a href="http://google.com" class="special">No, click me</a>
+    <br/>
+    <a href="http://cnn.com">No, me, me, me!</a>
+    <br/>
+</body>
+
+</html>

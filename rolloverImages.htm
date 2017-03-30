@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ le-frog/jquery-ui.css">
+    <style>
+    /* CSS code here */
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+    $(function() { // ready function 
+        console.log('jQuery is active.'); // test
+        $("#rollovers img").hover(
+            function() {
+                $(this).attr("src", $(this).attr("src").split("plain").join("hover"));
+            },
+            function() {
+                $(this).attr("src", $(this).attr("src").split("hover").join("plain"));
+            });
+
+    }); // end ready function
+    </script>
+</head>
+
+<body>
+    <div id="rollovers">
+        <p>Rollover Images</p>
+        <img src="images/stop_sign_plain.png" alt="stop sign" />
+    </div>
+</body>
+
+</html>

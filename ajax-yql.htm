@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/le-frog/jquery-ui.css">
+    <style>
+    /* CSS code here */
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+    $(function() { // ready function 
+        console.log('jQuery is active.'); // test
+        $.getJSON('http://query.yahooapis.com/v1/public/yql?q=select%20name%20from%20geo.states%20where%20place%3D%22United%20States%22%20%20%7C%20sort(field%3D%22name%22)&format=json&callback=',
+            function(data) {
+                console.log($(data.query.results.place).map(function() {
+                    return this.name;
+                }).get());
+                var statesObject = $(data.query.results.place).map(function() {
+                    return this.name;
+                });
+                $('#states').text(statesObject.toArray().join(", "));
+                $('#input_states').autocomplete({
+                    source: statesObject.toArray(),
+                    minLength: 0
+                });
+            }
+        );
+
+    }); // end ready function
+    </script>
+</head>
+
+<body>
+    <h1>Autocomplete</h1>
+    <data id='states'>Retrieving states from YQL...</data>
+    <br/>
+    <br/>
+    <form>
+        <label>Select state</label>
+        <input id="input_states" type="text"></input>
+    </form>
+</body>
+
+</html>
