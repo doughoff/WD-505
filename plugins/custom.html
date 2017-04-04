@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery class</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.js"></script>
+
+
+    <script>
+        $(function() { // start ready     
+            // DOM manipulation code here        
+            console.info('jQuery is active.');
+
+        }); // end ready function
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
+    <style>
+        a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        nav {
+            width: 200px;
+            padding-left: 10px;
+        }
+        
+        nav ul {
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0;
+            padding: 5px;
+            cursor: hand;
+            cursor: pointer;
+        }
+        
+        .ready {
+            border: 10px dashed Yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Custom plugins</h1>
+    <div id='div1'>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a>
+
+                </li>
+                <li><a href="#">About</a>
+
+                </li>
+                <li><a href="#">Clients</a>
+
+                </li>
+                <li><a href="#">Contact Us</a>
+
+                </li>
+            </ul>
+        </nav>
+        <h2>Plugin - default use</h2>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae
+            est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci,
+            sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt
+            quis, accumsan porttitor, facilisis luctus, metus</p>
+    </div>
+    <div id='div2'>
+
+        <h2>Plugin - custom use</h2>
+
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae
+            est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci,
+            sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt
+            quis, accumsan porttitor, facilisis luctus, metus</p>
+    </div>
+</body>
+<script>
+    // create the closure for variable protection
+    (function($) {
+        // extend the jQuery namespace
+        $.fn.extend({
+            // name the plugin
+            myPlugin: function(optionsIn) {
+                    // initialize defaults
+                    var defaults = {
+                        typeOfUse: 'default use',
+                        h2: 'default h2',
+                        p: 'default p',
+                        animatedPadding: 60,
+                        defaultPadding: 10,
+                        evenColor: '#ccc',
+                        oddColor: '#eee'
+                    };
+                    // merge default values with options object using deep copy for composed objects
+                    var options = $.extend(true, defaults, optionsIn);
+
+                    // notify of user of plugin
+                    alert('Plugin loaded and ready for ' + options.typeOfUse + ' on ' + $(this).selector);
+
+                    // allow for multiple element selection
+                    // *this* is already a jQuery object
+                    return this.each(function() {
+                        $eachItemInPlugin = $(this);
+
+                        // test section 1 -----------------------------------------------------
+                        // objects returned by the each function are referenced by $(this)
+                        // children() is only next level, 
+                        // use find() or $(item, insideOfElement) for all levels
+                        // nodeName is a JavaScript property
+
+                        $eachItemInPlugin.find('h2, p').each(function(index) {
+                            $(this).on('click', function(e) {
+                                console.log('Click from %s (aka %s) with options %o',
+                                    $(this)[0].nodeName, e.target.nodeName, options);
+                            });
+                        }); // end of each h2 or p
+
+                        // test section 2 -----------------------------------------------------
+                        $eachItemInPlugin.children('p').each(function(index) {
+                            $(this).on('click', function(e) {
+                                if (!$(this).data('clickLocation')) {
+                                    $(this).data('clickLocation', {
+                                        x: e.pageX,
+                                        y: e.pageY
+                                    });
+                                    alert('1st paragraph click location = ' + e.pageX + ', ' + e.pageY + ' for ' + options.typeOfUse);
+                                } else {
+                                    alert('I already clicked this paragraph for ' + options.typeOfUse + '.\n1st location = ' + $(this).data('clickLocation').x + ', ' + $(this).data('clickLocation').y + '\nNew location = ' + e.pageX + ', ' + e.pageY);
+                                }
+                            });
+                        }); // end of each p
+
+                        // test section 3 -----------------------------------------------------
+                        $("li:even", $eachItemInPlugin)
+                            .css('background-color', options.evenColor);
+                        $("li:odd", $eachItemInPlugin)
+                            .css('background-color', options.oddColor);
+                        $eachItemInPlugin.find('li a').each(function(index) {
+                            $(this).mouseover(function() {
+                                $(this).animate({
+                                    paddingLeft: options.animatedPadding
+                                }, 500);
+
+                            }).mouseout(function() {
+                                $(this).animate({
+                                    paddingLeft: options.defaultPadding
+                                }, 500);
+                            });
+                        }); // end of each li
+                        // end test section 3 -----------------------------------------------------
+                    }); // end of each item selected for the plugin
+
+                } // end of myPlugin
+        }); // end of extend
+    })($); // end of closure
+
+
+    $('#div1').myPlugin().addClass('ready');
+    $('#div2').myPlugin({
+        typeOfUse: 'custom use',
+        h2: 'custom h2',
+        p: 'custom p'
+    }).addClass('ready');
+</script>
+
+</html>

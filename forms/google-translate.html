@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Google Translate</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.js"></script>
+
+
+    <script>
+        $(function() { // start ready     
+            // DOM manipulation code here        
+            console.info('jQuery is active.');
+            $('#submit').click(function(e) {
+                e.preventDefault();
+                console.log('Translating...');
+                var targetLangauge = $('#targetLanguage').val() || 'es';
+                var textToTranslate = $('#q').val() || 'default text to translate';
+                $.getJSON('https://www.googleapis.com/language/translate/v2?q=' + textToTranslate +
+                    '&target=' + targetLangauge +
+                    '&key=AIzaSyATRvo1iZVmgUuCpR7SqwJdIA6XbmDBnqI',
+                    function(data) {
+                        console.log(data);
+                        $('data').text('');
+                        $('data').append('Translation: ');
+                        $('data').append(data.data.translations[0].translatedText);
+                    });
+            });
+        });
+        // end ready function
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
+
+</head>
+
+<body>
+    <h1>Google Translate</h1>
+    <form id='translate'>
+        <input type='text' name='q' id='q' placeholder='Text to translate'></input>
+        <button id='submit'>Translate</button> to
+        <select name="target" id='targetLanguage' type="select">
+            <option value='es'>Spanish</option>
+            <option value='de'>German</option>
+            <option value='fr'>French</option>
+        </select>
+    </form>
+    <br/>
+    <data></data>
+</body>
+
+</html>

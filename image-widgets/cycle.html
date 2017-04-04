@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery class</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle/3.0.3/jquery.cycle.all.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/2.1.6/jquery.cycle2.min.js"></script>-->
+
+
+    <script>
+        $(function() { // start ready     
+            // DOM manipulation code here        
+            console.info('jQuery is active.');
+
+        }); // end ready function
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
+    <style>
+        body {
+            background: #e8dbcb url("http://www.themescompany.com/wp-content/gallery/grunge-wallpaper/Grunge_Background.jpg");
+        }
+        
+        h1 {
+            color: White;
+        }
+        
+        h2 {
+            width: 320px;
+            height: 240px;
+            /* sink logo into slides */
+            top: 118px;
+            /* move back up after sinking into slides and center */
+            margin: -180px auto 0 auto;
+            position: relative;
+            background: url("http://www.harley-domboson.nl/images/hdlogo/Harley(logo).gif");
+            text-indent: -9999px;
+            z-index: 10;
+        }
+        
+        #container {
+            width: 1024px;
+            /* image + 2x slideshow padding1 */
+            margin: -40px auto;
+            position: relative;
+        }
+        
+        #slides img {
+            height: 768px;
+            width: 1024px;
+        }
+        /* standard slide image size = 1024w x 768h*/
+        
+        div#slideshow {
+            /* calc = image width + padding4 */
+            width: 1024px;
+            /* calc = (image height + padding1) */
+            height: 768px;
+            /* padding to show a border underneath = 12px 0 0 15px */
+            padding: 0px 0px 0px 0px;
+            /* background: url(images/border.png);  image HxW = +2x padding4 x +2x padding1 */
+            overflow: scroll;
+            /* View slides with scrollbar when no Javascript */
+            position: relative;
+            z-index: 5;
+        }
+        
+        div#slideshow ul#nav {
+            display: none;
+            list-style: none;
+            position: relative;
+            /* calc = visual distance from top */
+            top: 20px;
+            z-index: 15;
+        }
+        
+        div#slideshow ul#nav li#prev {
+            float: left;
+            /* calc = visual distance from left - 40 */
+            margin-left: 10px;
+        }
+        
+        div#slideshow ul#nav li#next {
+            float: right;
+            /* calc = visual distance from right */
+            margin-right: 50px;
+        }
+        
+        div#slideshow ul#nav li a {
+            display: block;
+            /* calc = use nav image height & width */
+            width: 40px;
+            height: 40px;
+            text-indent: -9999px;
+        }
+        
+        div#slideshow ul#nav li#prev a {
+            background: url("https://www.managerewardsonline.bankofamerica.com/cms/published/root/rps/images/TRVLCard/arrow-nav-grey-left.png");
+        }
+        
+        div#slideshow ul#nav li#next a {
+            background: url("https://www.managerewardsonline.bankofamerica.com/cms/published/root/rps/images/TRVLCard/arrow-nav-grey-right.png");
+        }
+        
+        div#slideshow ul#slides {
+            list-style: none;
+        }
+        
+        div#slideshow ul#slides li {
+            margin: 0 0 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Harley-Davidson Motorcycles</h2>
+
+        <div id="slideshow">
+            <ul id="nav">
+                <li id="prev"><a href="#">Previous</a>
+
+                </li>
+                <li id="next"><a href="#">Next</a>
+
+                </li>
+            </ul>
+            <ul id="slides">
+                <li>
+                    <img src="http://2.bp.blogspot.com/-xzCmiVYrlKM/Te-vmViX3hI/AAAAAAAAABY/yZaVTfjyxRM/s1600/harley-davidson.jpg" alt="Harley-Davidson 1" />
+                </li>
+                <li>
+                    <!--  DST firewalled -->
+                    <img src="http://media1.santabanta.com/full1/Bikes/Harley%20Davidson/harley-davidson-93a.jpg" alt="Harley-Davidson 2" />
+
+                    <img src="http://2.bp.blogspot.com/-K3HTSA7ZysU/TVgslM0W05I/AAAAAAAACAQ/TtTdKeZrU6E/wallpaper-of-harley-davidson-v-rod.jpg" alt="Harley-Davidson 3" />
+                </li>
+                <li>
+                    <!--  DST firewalled -->
+                    <img src="http://media1.santabanta.com/full1/Bikes/Harley%20Davidson/harley-davidson-90a.jpg" alt="Harley-Davidson 4" />
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    $("#slideshow").css("overflow", "hidden"); // to remove scrollbars
+    $("ul#slides").cycle({
+        fx: 'fade',
+        pause: 1,
+        prev: '#prev',
+        next: '#next'
+    });
+    $("#slideshow").hover(function() { // nav buttons fade in/out
+            $("ul#nav").fadeIn();
+        },
+
+        function() {
+            $("ul#nav").fadeOut();
+        });
+</script>
+
+</html>

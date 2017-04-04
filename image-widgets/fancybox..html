@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fancybox demo</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.js"></script>
+
+
+    <script>
+        $(function() { // start ready     
+            // DOM manipulation code here        
+            console.info('jQuery is active.');
+
+        }); // end ready function
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
+    <style>
+        #links {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            padding-top: 10px;
+            list-style: none;
+            text-align: center;
+            z-index: 99999;
+        }
+        
+        #links li {
+            display: inline;
+            padding: 0 5px;
+        }
+        
+        #links li label {
+            width: 12px;
+            height: 12px;
+            border-radius: 100%;
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+        }
+        
+        #links li.active label {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Fancybox demo</h1>
+    <a rel="gallery" class="fancybox" href="http://fancyapps.com/fancybox/demo/1_b.jpg"><img src="http://fancyapps.com/fancybox/demo/1_s.jpg" alt="" /></a>
+
+    <a rel="gallery" class="fancybox" href="http://fancyapps.com/fancybox/demo/2_b.jpg"><img src="http://fancyapps.com/fancybox/demo/2_s.jpg" alt="" /></a>
+
+    <a rel="gallery" class="fancybox" href="http://fancyapps.com/fancybox/demo/3_b.jpg"><img src="http://fancyapps.com/fancybox/demo/3_s.jpg" alt="" /></a>
+
+</body>
+<script>
+    $(".fancybox").fancybox({
+        nextEffect: 'fade',
+        prevEffect: 'fade',
+        padding: 0,
+        margin: [15, 15, 40, 15],
+        afterLoad: addLinks,
+        beforeClose: removeLinks
+    });
+
+    function addLinks() {
+        var list = $("#links");
+
+        if (!list.length) {
+            list = $('<ul id="links">');
+            for (var i = 0; i < this.group.length; i++) {
+                $('<li data-index="' + i + '"><label></label></li>').click(function() {
+                    $.fancybox.jumpto($(this).data('index'));
+                }).appendTo(list);
+            }
+            list.appendTo('body');
+        }
+        list.find('li').removeClass('active').eq(this.index).addClass('active');
+    }
+
+    function removeLinks() {
+        $("#links").remove();
+    }
+</script>
+
+</html>
