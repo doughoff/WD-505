@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Checkboxes</title>
+    <script>
+        namesObject = {
+            a: 'apple',
+            b: 'banana',
+            c: 'cherry'
+        };
+        namesArray = ['apple', 'banana', 'cherry'];
+
+        function addCheckbox(container, names) {
+            $.each(names, function(index, name) {
+                $('<input />', {
+                    type: 'checkbox',
+                    id: 'cb' + index,
+                    value: name
+                }).appendTo(container);
+                $('<label />', {
+                    'for': 'cb' + index,
+                    text: name
+                }).appendTo(container);
+                $('<br/>').appendTo(container);
+            });
+        }
+
+        addCheckbox($('#cblist'), namesObject);
+    </script>
+</head>
+
+<body>
+    <h1>Checkboxes</h1>
+    <div id="cblist"></div>
+</body>
+
+</html>

@@ -11,7 +11,7 @@
 
 
     <script>
-        $(function () {                       // start ready     
+        $(function() { // start ready     
             // DOM manipulation code here        
             console.info('jQuery is active.');
 
@@ -33,18 +33,12 @@
                 var $dataDiv = $('<div id="dataDiv"/>');
                 $dataDiv.html('<h2>Form data</h2>');
                 $dataDiv.html($dataDiv.html() + '<ul>');
-
                 $dataDiv.html($dataDiv.html() + '<li>Bing field =  ' + $('#q').val() + '</li>');
                 $dataDiv.html($dataDiv.html() + '<li>Text field =  ' + $('#name').val() + '</li>');
-
                 $dataDiv.html($dataDiv.html() + '<li>Radio button =  ' + $('[name="radio-choices"]:checked').val() + '</li>');
-
                 $dataDiv.html($dataDiv.html() + '<li>Dropdown = ' + $('#select-choice').val() + ' </li>');
-
                 $dataDiv.html($dataDiv.html() + '<li>Textarea = ' + $('#textarea').val() + ' </li>');
-
                 $dataDiv.html($dataDiv.html() + '<li>Checkbox is ' + ($('#checkbox').prop('checked') ? 'checked' : 'unchecked') + ' </li>');
-
                 $dataDiv.html($dataDiv.html() + '</ul>');
 
                 $('body').append($dataDiv);
@@ -57,26 +51,26 @@
 
             // optional error checking event handlers...
             error = false;
-            $('form').submit(function (e) {
+            $('form').submit(function(e) {
                 if (error) {
                     return false;
                 }
                 showEventInfo(e);
                 $(this).find(':text, #textarea').each(
-                    function (index, item) {
+                    function(index, item) {
                         runRuleTextBoxGTE5charsOn($(item));
                         runRuleRequiredTextOn($(item));
                     });
             });
 
-            $(':text, #textarea').blur(function (e) {
+            $(':text, #textarea').blur(function(e) {
                 showEventInfo(e);
                 if ($(this).val().length === 0) {
                     addErrorSpanAfter($(this));
                 }
             });
 
-            $(':text , #textarea').focus(function (e) {
+            $(':text , #textarea').focus(function(e) {
                 showEventInfo(e);
                 removeErrorSpanAfter($(this));
             });
@@ -111,7 +105,7 @@
                     .next('span')
                     .remove();
             }
-        });                                 // end ready function
+        }); // end ready function
     </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
