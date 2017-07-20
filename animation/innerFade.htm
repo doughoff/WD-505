@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>InnerFade exercise</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <style>
+        .innerFadeClass {}
+
+        #innerFadeElement img {
+            max-height: 250px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="../js/jquery.innerfade.js"></script>
+    <script>
+        $(function () { // ready function 
+            console.log('jQuery is active.'); // test
+
+            $('#innerFadeElement').innerfade({
+                speed: 2000,
+                animationtype: 'fade', // or slide
+                timeout: 4000,
+                type: 'sequence',
+                containerheight: '250px',
+                runningclass: 'innerFadeClass'
+            });
+
+        }); // end ready function
+    </script>
+</head>
+
+<body>
+    <div id="innerFadeElement">
+        <div><img src="../images/dog1.jpg" /></div>
+        <div><img src="../images/dog2.jpg" /></div>
+        <div><img src="../images/dog3.jpg" /></div>
+        <div><img src="../images/dog4.jpg" /></div>
+        <div><img src="../images/dog5.jpg" /></div>
+    </div>
+</body>
+
+</html>
