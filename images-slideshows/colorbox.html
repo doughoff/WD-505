@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="">
 
 <head>
-    <title>jQuery class</title>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.js"></script>
@@ -17,26 +11,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/theme.min.css" />
     <!--themes to use in place of base are: black-tie, blitzer, cupertino, dark-hive, dot-luv, eggplant, excite-bike, flick, hot-sneaks, humanity, le-frog, mint-choc, overcast, pepper-grinder, redmond, smoothness, south-street, start, sunny, swanky-purse, trontastic, ui-darkness, ui-lightness, vader-->
 
-    <style>
-        /* CSS code here */
-    </style>
-
+    <script src="../js/jquery.colorbox-min.js"></script>
+    <link rel="stylesheet" href="../css/colorbox.css">
     <script>
-        $(function () {                       // start ready     
-            // DOM manipulation code here        
-            console.info('jQuery is active.');
-            // activate two visual tests
-            $('#date').datepicker();
-            $('button').button();
-        });                                 // end ready function
+        $(function () { // ready function 
+            console.log('jQuery is active.'); // test
+            $("#colorboxImages a").colorbox({
+                rel: 'group1',
+                slideshow: true
+            });
+        }); // end ready function
     </script>
-
 </head>
 
 <body>
-    <h1>Headline of page</h1>
-    <button>The button</button>
-    <input type="text" name="date" id="date">
+    <h2>Colorbox slideshow of lightboxed images</h2>
+    <section id="colorboxImages">
+        <a href="../images/dog1.jpg" title="Image 1">Show lightboxed image</a>
+        <a href="../images/dog3.jpg" title=" Show <a href='http://google.com'>Image 2</a>" />
+        <a href="../images/dog5.jpg" title="Image 3" />
+    </section>
 </body>
 
 </html>
