@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Change link style when on own page</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css" />
+    <style>
+        a.this_page_link {
+            color: #CCCCCC;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        $(function () {					// start ready     
+            console.info('jQuery is active.');
+            pageName = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
+            $('a[href*="' + pageName + '"]').attr('class', 'this_page_link');
+
+        });							// end ready function
+    </script>
+
+</head>
+
+<body>
+    <h1>jQuery template page</h1>
+    <p>Menu</p>
+    <ul>
+        <li><a href="http://google.com">Google</a></li>
+        <li><a href="\menus\linkStyleOnOwnPage.html">Jquery link test</a></li>
+        <li><a href="http://cnn.com">CNN</a></li>
+    </ul>
+
+</body>
+<script>
+    // alert('alert!');
+
+</script>
+
+</html>
