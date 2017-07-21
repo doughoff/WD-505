@@ -19,6 +19,7 @@
     <script>
     $(function() { // ready function 
         console.log('jQuery is active.'); // test
+        // no longer public access
         $.getJSON('http://query.yahooapis.com/v1/public/yql?q=select%20name%20from%20geo.states%20where%20place%3D%22United%20States%22%20%20%7C%20sort(field%3D%22name%22)&format=json&callback=',
             function(data) {
                 console.log($(data.query.results.place).map(function() {
