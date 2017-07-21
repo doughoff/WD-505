@@ -2,15 +2,21 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>jQuery class</title>
+    <title>Flickr AJAX</title>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.js"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css" />
 
-    <script>
+<script>
         $(function () {                       // start ready     
             // DOM manipulation code here        
             console.info('jQuery is active.');
@@ -22,15 +28,9 @@
                     $('<h1>').text(data.title)
                         .appendTo('body');
                     $(data.items).each(function () {
-                        $('<figure/>', {style:'display:inline-block'})
-                        .append($('<a>', { href: this.link })
-                            .html($('<img>', { 
-                                src:    this.media.m, 
-                                style: 'height: 200px; padding:2px',
-                                alt:    this.title
-                            }))
-                        )
-                        .append($('<figcaption/>').html(this.description))
+                        $('<figure/>', {style:'display:inline-block ;max-width:300px'})
+                        .append($('<figcaption/>')
+                        .html(this.description))
                         .appendTo('body');
                     });
                 });
@@ -38,11 +38,10 @@
         });                                 // end ready function
     </script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
     <style>
         figure {
-            margin: 0;
+            margin: .3rem;
+            font-size: .8rem;
         }
     </style>
 </head>

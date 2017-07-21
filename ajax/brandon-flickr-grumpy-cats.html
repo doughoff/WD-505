@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flickr Grumpy Cats</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.js"></script>
+
+
+    <script>
+        $(function() { // start ready     
+            // DOM manipulation code here        
+            console.info('jQuery is active.');
+            var commaSeparatedSearchTags = 'cat, grumpy';
+            var flickrBase = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+            $.getJSON(flickrBase, {
+                    tags: commaSeparatedSearchTags,
+                    format: 'json'
+                },
+                function(data) {
+                    console.log(data);
+                    $('<h2>').text(data.title)
+                        .insertBefore('#images');
+                    $(data.items).each(function() {
+                        $('<a>', {
+                                href: this.link,
+                                'data-title': this.title,
+                                'data-author': this.author
+                            }).append(
+                                $('<img>', {
+                                    src: this.media.m
+                                }))
+                            .appendTo('#images');
+                    });
+                });
+
+        }); // end ready function
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
+    <style type="text/css">
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+        }
+        .images a {
+            flex: 1 0 auto;
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            max-width: 400px;
+        }
+        .images a:hover:before {
+            content: attr(data-title);
+            background: rgba(0,0,0,0.5);
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: #fff;
+            margin-left: 2px;
+            margin-right: 2px;
+            padding: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .images a img {
+            min-width: 100%;
+            height: auto;
+            min-height: 200px;
+            padding: 2px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Flickr Grumpy Cats</h1>
+    <div id="images" class="images"></div>
+</body>
+
+</html>
