@@ -31,7 +31,12 @@
             });
         });
         // end ready function
-    </script>
+</script>
+<style>
+    data {
+        font-size: 1.5rem;
+    }
+</style>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
@@ -44,9 +49,15 @@
         <input type='text' name='q' id='q' placeholder='Text to translate'></input>
         <button id='submit'>Translate</button> to
         <select name="target" id='targetLanguage' type="select">
+            <!-- https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes -->
             <option value='es'>Spanish</option>
             <option value='de'>German</option>
             <option value='fr'>French</option>
+            <option value='ja'>Japanese</option>
+            <option value='he'>Hebrew</option>
+            <option value='el'>Greek</option>
+            <option value='ru'>Russian</option>
+            
         </select>
     </form>
     <br/>

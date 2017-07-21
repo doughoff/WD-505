@@ -2,10 +2,21 @@
 <html lang="en">
 
 <head>
+    <title>Dynamic Checkboxes</title>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Checkboxes</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css" />
+
+    <script>
+    </script>
     <script>
         namesObject = {
             a: 'apple',
@@ -29,12 +40,15 @@
             });
         }
 
+        $(function () {					// start ready     
+            console.info('jQuery is active.');
         addCheckbox($('#cblist'), namesObject);
+        });							// end ready function
     </script>
 </head>
 
 <body>
-    <h1>Checkboxes</h1>
+    <h1>Dynamic Checkboxes</h1>
     <div id="cblist"></div>
 </body>
 

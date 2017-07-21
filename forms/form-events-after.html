@@ -5,124 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Form events after</title>
+
+    <script>
+        // Code is below html
+
+    </script>
+
     <style>
         .error {
             color: #990000;
             font-weight: bold;
         }
     </style>
-    <script>
-        //-------------------------- initialize variables and form fields
-        var error = false;
-        initializeFormData();
-
-        //-------------------------- UI event handlers
-        document.querySelector('#btn_showData').onclick = appendFormData;
-
-        //-------------------------- error event handlers
-        //$('form').submit(function (e) {
-        //    if (error) {
-        //        return false;
-        //    }
-        //    showEventInfo(e);
-        //    $(this).find(':text, #textarea').each(
-        //        function (index, item) {
-        //            runRuleTextBoxGTE5charsOn($(item));
-        //            runRuleRequiredTextOn($(item));
-        //        });
-        //});
-        //
-        //$(':text, #textarea').blur(function (e) {
-        //    showEventInfo(e);
-        //    if ($(this).val().length === 0) {
-        //        addErrorSpanAfter($(this));
-        //    }
-        //});
-        //
-        //$(':text , #textarea').focus(function (e) {
-        //    showEventInfo(e);
-        //    removeErrorSpanAfter($(this));
-        //});
-
-
-        function showEventInfo(e) {
-            console.info(
-                " event:", e.type,
-                "\n target.id:", e.target.id,
-                "\n target.nodeName:", e.target.nodeName
-            );
-        }
-
-        function initializeFormData() {
-            document.querySelector('#q').value = 'JavaScript';
-            document.querySelector('#r2')
-                .checked = true;
-            document.querySelector('option[value="o2"]')
-                .selected = true;
-            document.querySelector('#textarea')
-                .value = 'This is a text area.';
-            document.querySelector('#checkbox')
-                .checked = true;
-        }
-
-        function appendFormData(e) {
-            e.preventDefault();
-            console.log('Appending form data...');
-            var dataDiv = document.querySelector('#dataDiv');
-            dataDiv.remove();
-            dataDiv.innerHTML = '<h2>Form data</h2>';
-            //    $dataDiv.html($dataDiv.html() + '<ul>');
-            //
-            //    $dataDiv.html($dataDiv.html() + '<li>Text field =  ' + $('#name').val() + '</li>');
-            //
-            //    $dataDiv.html($dataDiv.html() + '<li>Radio button =  ' + $('[name="radio-choices"]:checked').val() + '</li>');
-            //
-            //    $dataDiv.html($dataDiv.html() + '<li>Dropdown = ' + $('#select-choice').val() + ' </li>');
-            //
-            //    $dataDiv.html($dataDiv.html() + '<li>Textarea = ' + $('#textarea').val() + ' </li>');
-            //
-            //    $dataDiv.html($dataDiv.html() + '<li>Checkbox is ' + ($('#checkbox').prop('checked') ? 'checked' : 'unchecked') + ' </li>');
-            //
-            //    $dataDiv.html($dataDiv.html() + '</ul>');
-            //
-            document.querySelector('body').insertAdjacentHTML('beforeend', dataDiv);
-        }
-
-        function runRuleRequiredTextOn($element) {
-            //    if ($element.val().length === 0) {
-            //        $element.css('border', '2px solid red');
-            //    } else {
-            //        $element.css('border', '');
-            //    }
-        }
-
-        function runRuleTextBoxGTE5charsOn($element) {
-            //    if ($element.val().length < 5) {
-            //        addErrorSpanAfter($element);
-            //        $element.focus();
-            //    } else {
-            //        removeErrorSpanAfter($element);
-            //    }
-        }
-
-        function addErrorSpanAfter($element) {
-            error = true;
-            //    $element.addClass('error')
-            //        .after('<span class="error">This field has a problem.</span>');
-        }
-
-        function removeErrorSpanAfter($element) {
-            error = false;
-            //    $element.removeClass('error')
-            //        .next('span')
-            //        .remove();
-        }
-    </script>
 </head>
 
 <body>
-    <h1>Form exercise</h1>
+    <h1>Form exercise - after</h1>
     <form action="http://bing.com" method="get">
         <div>
             <label for="q">Bing query:</label>
@@ -157,5 +56,113 @@
     </form>
     <div id='dataDiv' />
 </body>
+<script>
+    //-------------------------- initialize variables and form fields
+    var error = false;
+    initializeFormData();
+
+    //-------------------------- UI event handlers
+    document.querySelector('#btn_showData').onclick = appendFormData;
+
+    //-------------------------- error event handlers
+    //$('form').submit(function (e) {
+    //    if (error) {
+    //        return false;
+    //    }
+    //    showEventInfo(e);
+    //    $(this).find(':text, #textarea').each(
+    //        function (index, item) {
+    //            runRuleTextBoxGTE5charsOn($(item));
+    //            runRuleRequiredTextOn($(item));
+    //        });
+    //});
+    //
+    //$(':text, #textarea').blur(function (e) {
+    //    showEventInfo(e);
+    //    if ($(this).val().length === 0) {
+    //        addErrorSpanAfter($(this));
+    //    }
+    //});
+    //
+    //$(':text , #textarea').focus(function (e) {
+    //    showEventInfo(e);
+    //    removeErrorSpanAfter($(this));
+    //});
+
+
+    function showEventInfo(e) {
+        console.info(
+            " event:", e.type,
+            "\n target.id:", e.target.id,
+            "\n target.nodeName:", e.target.nodeName
+        );
+    }
+
+    function initializeFormData() {
+        document.querySelector('#q').value = 'JavaScript';
+        document.querySelector('#r2')
+            .checked = true;
+        document.querySelector('option[value="o2"]')
+            .selected = true;
+        document.querySelector('#textarea')
+            .value = 'This is a text area.';
+        document.querySelector('#checkbox')
+            .checked = true;
+    }
+
+    function appendFormData(e) {
+        e.preventDefault();
+        console.log('Appending form data...');
+        var dataDiv = document.querySelector('#dataDiv');
+        dataDiv.remove();
+        dataDiv.innerHTML = '<h2>Form data</h2>';
+        //    $dataDiv.html($dataDiv.html() + '<ul>');
+        //
+        //    $dataDiv.html($dataDiv.html() + '<li>Text field =  ' + $('#name').val() + '</li>');
+        //
+        //    $dataDiv.html($dataDiv.html() + '<li>Radio button =  ' + $('[name="radio-choices"]:checked').val() + '</li>');
+        //
+        //    $dataDiv.html($dataDiv.html() + '<li>Dropdown = ' + $('#select-choice').val() + ' </li>');
+        //
+        //    $dataDiv.html($dataDiv.html() + '<li>Textarea = ' + $('#textarea').val() + ' </li>');
+        //
+        //    $dataDiv.html($dataDiv.html() + '<li>Checkbox is ' + ($('#checkbox').prop('checked') ? 'checked' : 'unchecked') + ' </li>');
+        //
+        //    $dataDiv.html($dataDiv.html() + '</ul>');
+        //
+        document.querySelector('body').insertAdjacentHTML('beforeend', dataDiv);
+    }
+
+    function runRuleRequiredTextOn($element) {
+        //    if ($element.val().length === 0) {
+        //        $element.css('border', '2px solid red');
+        //    } else {
+        //        $element.css('border', '');
+        //    }
+    }
+
+    function runRuleTextBoxGTE5charsOn($element) {
+        //    if ($element.val().length < 5) {
+        //        addErrorSpanAfter($element);
+        //        $element.focus();
+        //    } else {
+        //        removeErrorSpanAfter($element);
+        //    }
+    }
+
+    function addErrorSpanAfter($element) {
+        error = true;
+        //    $element.addClass('error')
+        //        .after('<span class="error">This field has a problem.</span>');
+    }
+
+    function removeErrorSpanAfter($element) {
+        error = false;
+        //    $element.removeClass('error')
+        //        .next('span')
+        //        .remove();
+    }
+
+</script>
 
 </html>
