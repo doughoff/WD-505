@@ -16,17 +16,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css" />
 
     <script>
+
     </script>
     <script>
         namesObject = {
-            a: 'apple',
-            b: 'banana',
-            c: 'cherry'
+            a: 'artichokes',
+            b: 'broccoli',
+            c: 'carrots'
         };
-        namesArray = ['apple', 'banana', 'cherry'];
+        namesArray = ['apples', 'bananas', 'cherries'];
 
         function addCheckbox(container, names) {
-            $.each(names, function(index, name) {
+            $.each(names, function (index, name) {
                 $('<input />', {
                     type: 'checkbox',
                     id: 'cb' + index,
@@ -42,7 +43,9 @@
 
         $(function () {					// start ready     
             console.info('jQuery is active.');
-        addCheckbox($('#cblist'), namesObject);
+            // try both the JSON object and the array
+            addCheckbox($('#cblist'), namesObject);
+            // addCheckbox($('#cblist'), namesArray);
         });							// end ready function
     </script>
 </head>
