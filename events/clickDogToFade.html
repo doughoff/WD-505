@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Click Dog To Fade</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<h1>Dogs that Fade</h1>
+<body>
+    <script>
+        for (let index = 0; index < 12; index++) {
+            $('<img/>', {
+                src:'http://www.dogbazar.org/wp-content/uploads/2014/09/british-bull-dog-puppies.jpg',
+                alt:'dog ' + index,
+                title: 'good dog ' + index,
+                style: 'float:right; width:250px',
+                click: function(e){ $(this).css('opacity', '.50'); }
+            })
+            .appendTo($('body'));
+        }
+    </script>
+</body>
+</html>
