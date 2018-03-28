@@ -4,37 +4,31 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
+    <title>On Hover Change Class</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <style>
-    /* CSS code here */
-    
-    .blue {
-        background-color: #33FFFF;
-    }
+        .blue {
+            background-color: #33FFFF;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
-    $(function() { // ready function 
-        console.log('jQuery is active.'); // test
+        $(function () { // ready function 
+            console.log('jQuery is active.'); // test
 
-        $('#hover-list li')
-            .on('mouseenter',
-                function() {
-                    $(this).addClass('blue');
-                })
-            .on('mouseout',
-                function() {
-                    $(this).removeClass('blue');
-                });
+            $('#hover-list li')
+                .on('mouseenter',
+                    function () {
+                        $(this).addClass('blue');
+                    })
+                .on('mouseout',
+                    function () {
+                        $(this).removeClass('blue');
+                    });
 
-    }); // end ready function
+        }); // end ready function
     </script>
 </head>
 
