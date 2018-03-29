@@ -18,17 +18,17 @@
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
     <script>
-        $(function () {          // ready function 
-            $("li").on('click',
-                function () {
-                    if (!$(this).data('clicked')) {
-                        $(this).append("<b> Completed </b>"
-                            + $.datepicker.formatDate('mm-dd-yy', new Date()));
-                        $(this).data('clicked', true);
-                    }
-                });
-
-        });                     // end ready function
+        function appendDate() {
+            if (!$(this).data('clicked')) {
+                $(this).append("<b> Completed </b>"
+                    + $.datepicker.formatDate('mm-dd-yy', new Date()));
+                $(this).data('clicked', true);
+            }
+        }
+        function onClick() {
+            $("li").on('click', appendDate);
+        }
+        $(onClick); // ready function                 
     </script>
 </head>
 
