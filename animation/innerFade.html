@@ -8,14 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css" />
-
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
+    <style>
+            .innerFadeClass {
+                display:block;
+            }
+            #innerFadeElement img {
+                max-height: 250px;
+            }
+    </style>
+    
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- to check for upgrades to jQuery 3.0+ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.js"></script>
     <script src="../js/jquery.innerfade.js"></script>
+
     <script>
         $(function () { // ready function 
             console.log('jQuery is active.'); // test
@@ -31,13 +40,6 @@
 
         }); // end ready function
     </script>
-    <style>
-        .innerFadeClass {}
-
-        #innerFadeElement img {
-            max-height: 250px;
-        }
-</style>
 </head>
 
 <body>
