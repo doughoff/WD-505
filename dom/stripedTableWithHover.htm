@@ -7,39 +7,38 @@
     <title>Striped Table with Hover</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
     <style>
-    tr.table-striped {
-        background-color: #ecf6fc;
-    }
-    
-    tr.table-row-highlight {
-        background-color: #bcd4ec;
-    }
-    
-    td,
-    th {
-        padding: 8px;
-    }
+        tr.table-striped {
+            background-color: #ecf6fc;
+        }
+
+        tr.table-row-highlight {
+            background-color: #bcd4ec;
+        }
+
+        td,
+        th {
+            padding: 8px;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
     <script>
-    $(function() { // ready function 
-        $("table.striped tr:odd").addClass("table-striped");
-        $("table.striped tr")
-            .on('mouseover', function() {
-                $(this).addClass("table-row-highlight");
-            })
-            .on('mouseout', function() {
-                $(this).removeClass("table-row-highlight");
-            });
+        $(function () { // ready function 
+            $("table.striped tr:odd")
+                .addClass("table-striped");
+            $("table.striped tr")
+                .on('mouseover', function () {
+                    $(this).addClass("table-row-highlight");
+                })
+                .on('mouseout', function () {
+                    $(this).removeClass("table-row-highlight");
+                });
 
 
-    }); // end ready function
+        }); // end ready function
     </script>
 </head>
 

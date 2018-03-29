@@ -8,9 +8,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
-    <link rel="stylesheet" href= "https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <style>
         /* CSS code here */
     </style>
@@ -20,28 +18,28 @@
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
     <script>
-    $(function() {          // ready function 
-    $("li").on('click',
-      function () { 
-            if( ! $(this).data('clicked') ){
-            $(this).append("<b> Completed </b>" 
-            + $.datepicker.formatDate('mm-dd-yy', new Date()) );
-                $(this).data('clicked',true);
-            }
-      });
+        $(function () {          // ready function 
+            $("li").on('click',
+                function () {
+                    if (!$(this).data('clicked')) {
+                        $(this).append("<b> Completed </b>"
+                            + $.datepicker.formatDate('mm-dd-yy', new Date()));
+                        $(this).data('clicked', true);
+                    }
+                });
 
-    });                     // end ready function
+        });                     // end ready function
     </script>
 </head>
 
 <body>
-<h2>To Do</h2>
-<ul>
-   <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-   <li>Aliquam tincidunt mauris eu risus.</li>
-   <li>Vestibulum auctor dapibus neque.</li>
-</ul>
-           
+    <h2>To Do</h2>
+    <ul>
+        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+        <li>Aliquam tincidunt mauris eu risus.</li>
+        <li>Vestibulum auctor dapibus neque.</li>
+    </ul>
+
 </body>
 
 </html>
