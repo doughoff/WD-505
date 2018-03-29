@@ -21,7 +21,8 @@
                     format: 'json'
                 },
                 function(data) {
-                    console.log(data);
+                    // console.log(data);
+                    console.table(data.items);
                     $('<h2>').text(data.title)
                         .appendTo('body');
                     $(data.items).each(function() {
@@ -29,6 +30,7 @@
                                 href: this.link
                             }).append(
                                 $('<img>', {
+                                    title: this.title,
                                     src: this.media.m,
                                     style: 'height: 200px; padding:2px'
                                 }))

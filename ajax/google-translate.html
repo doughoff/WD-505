@@ -21,7 +21,7 @@
                 var textToTranslate = $('#q').val() || 'default text to translate';
                 $.getJSON('https://www.googleapis.com/language/translate/v2?q=' + textToTranslate +
                     '&target=' + targetLangauge +
-                    '&key=AIzaSyATRvo1iZVmgUuCpR7SqwJdIA6XbmDBnqI',
+                    '&key=<your key here>',
                     function(data) {
                         console.log(data);
                         $('data').text('');
