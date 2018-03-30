@@ -4,6 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Drag & Drop Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
+    <style>
+        #container {
+            height: 200px;
+            margin-bottom: 7em;
+        }
+        
+        .paper {
+            cursor: move;
+            height: 100px;
+        }
+        
+        .trash {
+            height: 200px;
+            float: right;
+            margin-right: 50px;
+        }
+        
+        .drop-hover {
+            transform: rotate(7deg);
+            -ms-transform: rotate(7deg);
+            -webkit-transform: rotate(7deg);
+            transition: all 1s ease;
+            -ms-transition: all 1s ease;
+            -webkit-transition: all 1s ease;
+        }
+    </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -38,34 +66,6 @@
         }); // end ready function
     </script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" />
-    <style>
-        #container {
-            height: 200px;
-            margin-bottom: 7em;
-        }
-        
-        .paper {
-            cursor: move;
-            height: 100px;
-        }
-        
-        .trash {
-            height: 200px;
-            float: right;
-            margin-right: 50px;
-        }
-        
-        .drop-hover {
-            transform: rotate(7deg);
-            -ms-transform: rotate(7deg);
-            -webkit-transform: rotate(7deg);
-            transition: all 1s ease;
-            -ms-transition: all 1s ease;
-            -webkit-transition: all 1s ease;
-        }
-    </style>
 </head>
 
 <body>
