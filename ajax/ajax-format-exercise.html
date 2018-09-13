@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX data formatting</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js"></script>
+
+    <script>
+        // defer execution of code until jQuery/document.load function
+        jQuery(function () {                 // begin ready function
+            // remove the paragraphs
+            $('#main').empty();
+
+            // get the template
+            var $templatePerson = $('#person');
+
+            // request and process the data
+            $.get('https://next.json-generator.com/api/json/get/EkkXgdmur', function (data) {
+                // console.table(data);
+                console.log(data);
+
+                $peopleSection = $('<section id="people"/>').prepend('<h1>People</h1');
+                // loop for each data item
+                $.each(data, function (count, item) {
+                    console.log('Building person #', count);
+                    // clone the template 
+                    $clonedPerson = $templatePerson.clone(true);
+
+                    // turn on display to block, change id
+
+                    // insert the data into the appropriate areas
+
+                    // append to $peopleSection
+                    
+                })
+                // insert the aggregate object
+                $('#main').append($peopleSection);
+            });
+        })                                  // end ready function
+
+    </script>
+
+    <style>
+        .label {
+            font-style: bold;
+            color: grey;
+            margin-right: .5rem;
+        }
+        .person {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <h1 id='headline'>My jQuery Template</h1>
+        <!-- p*5#p$>lorem -->
+        <p id="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, labore! Reiciendis cumque ipsum,
+            voluptatum neque, optio aliquid rem cupiditate labore saepe illum mollitia sit nostrum sint velit dolores
+            accusantium libero?</p>
+        <p id="p2">Architecto optio qui facilis laborum sequi iusto sunt exercitationem nostrum sapiente reiciendis
+            dolorum, facere harum nihil ea, voluptates ab ex animi voluptas ipsa adipisci esse atque. Non tenetur
+            voluptates molestias.</p>
+        <p id="p3">Quia, error! Ipsam quae autem repudiandae quis. Nulla velit nam repellendus provident ipsa,
+            doloribus, nisi distinctio dolores reprehenderit repudiandae modi! Tempore, ab autem sed id laborum dicta
+            vel! Aspernatur, exercitationem.</p>
+        <p id="p4">Ipsa consequatur inventore minus fugit libero. Omnis vel voluptas voluptates assumenda fuga
+            consectetur nostrum blanditiis culpa ipsa dolores eveniet, tempora ullam unde totam quaerat dicta tempore
+            at repellendus dolor eligendi.</p>
+        <p id="p5">Rem necessitatibus culpa saepe suscipit obcaecati beatae. Fuga ullam consectetur cum repellat iure
+            ab, modi commodi dolorum vitae cupiditate. Qui mollitia magnam molestias deserunt, laudantium saepe
+            voluptatem id sunt facere.</p>
+    </div>
+    <div id='person' class="person" style=''>
+        <div class="picture" style='float:left; width:4rem; height: 4rem; border:1px solid grey; margin: .5rem 1rem .5rem 0'><img
+                src="~picture" alt="~name.first ~name.last"></div>
+        <div class="name" style='font-size: 2rem'>
+            <span class="label">Name</span> <span id="name-first">~name.first</span> <span id="name-lst">~name.last</span>
+        </div>
+        <div class="company">
+            <span class="label">Company</span><span id="company">~company</span>
+        </div>
+        <div class="address">
+            <span class="label">Address</span><span id="address">~address</span>
+        </div>
+        <div class="info">
+            <span class="label">Info </span>
+            Your favorite fruit is <span id="fruit">~fruit</span> and your eye color is <span id="eyeColor">~eyeColor</span>.
+            You have <friendsCount>
+                ~friend.length
+            </friendsCount> friends and were
+            registered on <span id="registered">~registered</span>. You are ~age years and still owe <span id="balance">~balance</span>.
+            <span id="about">~about</span>
+
+        </div>
+    </div>
+</body>
+
+</html>
