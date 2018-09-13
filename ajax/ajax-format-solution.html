@@ -32,11 +32,27 @@
                     $clonedPerson = $templatePerson.clone(true);
 
                     // turn on display to block, change id
+                    $clonedPerson.removeClass('template');
+                    $clonedPerson.attr('id', 'person'+ count);
 
                     // insert the data into the appropriate areas
+                    $('#name-first', $clonedPerson).html(item.name.first);
+                    $('#name-last', $clonedPerson).html(item.name.last);
+                    $('img', $clonedPerson).attr("alt", item.name.first + " " + item.name.last);
+                    $('img', $clonedPerson).attr("src", item.picture);
+                    $('#company', $clonedPerson).html(item.company);
+                    $('#address', $clonedPerson).html(item.address);
+                    $('#favoriteFruit', $clonedPerson).html(item.favoriteFruit);
+                    $('#eyeColor', $clonedPerson).html(item.eyeColor);
+                    $('#friendsCount', $clonedPerson).html(item.friends.length);
+                    $('#eyeColor', $clonedPerson).html(item.eyeColor);
+                    $('#registered', $clonedPerson).html(item.registered);
+                    $('#age', $clonedPerson).html(item.age);
+                    $('#balance', $clonedPerson).html(item.balance);
+                    $('#about', $clonedPerson).html(item.about);
 
                     // append to $peopleSection
-
+                    $clonedPerson.appendTo($peopleSection);
                 })
                 // insert the aggregate object
                 $('#main').append($peopleSection);
@@ -51,13 +67,11 @@
             color: grey;
             margin-right: .5rem;
         }
-
         .person {
             margin-bottom: 2rem;
         }
-
-        .template {
-            display: none;
+        .template{
+            display:none;
         }
     </style>
 </head>
