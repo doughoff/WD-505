@@ -14,7 +14,7 @@
         $(function() { // start ready     
             // DOM manipulation code here        
             console.info('jQuery is active.');
-            var commaSeparatedSearchTags = 'cat, grumpy';
+            var commaSeparatedSearchTags = 'dog, grumpy';
             var flickrBase = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
             $.getJSON(flickrBase, {
                     tags: commaSeparatedSearchTags,

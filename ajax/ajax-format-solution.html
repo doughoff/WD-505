@@ -33,7 +33,7 @@
 
                     // turn on display to block, change id
                     $clonedPerson.removeClass('template');
-                    $clonedPerson.attr('id', 'person'+ count);
+                    $clonedPerson.attr('id', 'person' + item.index);
 
                     // insert the data into the appropriate areas
                     $('#name-first', $clonedPerson).html(item.name.first);
@@ -51,13 +51,23 @@
                     $('#balance', $clonedPerson).html(item.balance);
                     $('#about', $clonedPerson).html(item.about);
 
+                    $.each(item.friends, function (count, friend) {
+                        var $friendDiv = $('<div/>').html(
+                            'Friend #' + count + ': ' + friend.name
+                        );
+                        $friendDiv.appendTo($('#friends', $clonedPerson));
+                    });
                     // append to $peopleSection
                     $clonedPerson.appendTo($peopleSection);
-                })
-                // insert the aggregate object
+                });
+                // insert the aggregate object into the DOM
                 $('#main').append($peopleSection);
-            });
-        })                                  // end ready function
+                // append to $peopleSection
+                $clonedPerson.appendTo($peopleSection);
+            })
+            // insert the aggregate object
+            $('#main').append($peopleSection);
+        });                               // end ready function
 
     </script>
 
@@ -67,11 +77,13 @@
             color: grey;
             margin-right: .5rem;
         }
+
         .person {
             margin-bottom: 2rem;
         }
-        .template{
-            display:none;
+
+        .template {
+            display: none;
         }
     </style>
 </head>
@@ -114,7 +126,10 @@
             You have <span id='friendsCount'>
                 ~friend.length
             </span> friends and were
-            registered on <span id="registered">~registered</span>. You are <span id="age">~age</span> years old and still owe <span id="balance">~balance</span>.
+            registered on <span id="registered">~registered</span>. You are <span id="age">~age</span> years old and
+            still owe <span id="balance">~balance</span>.
+            <div class="friends" id='friends'>
+            </div>
             <span id="about">~about</span>
 
         </div>

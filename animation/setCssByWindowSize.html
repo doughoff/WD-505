@@ -11,42 +11,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <style>
-    div {
-        border: thin solid #FF9933;
-        padding: 20px;
-    }
-    
-    .bg-red {
-        background-color: red;
-    }
-    
-    .bg-green {
-        background-color: green;
-    }
-    
-    .bg-yellow {
-        background-color: yellow;
-    }
+        div {
+            border: thin solid #FF9933;
+            padding: 20px;
+        }
+
+        .bg-red {
+            background-color: red;
+        }
+
+        .bg-green {
+            background-color: green;
+        }
+
+        .bg-yellow {
+            background-color: yellow;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
-    $(function() { // ready function 
-        console.log('jQuery is active.'); // test
-        $(window).on('resize', function(event) {
-            $('div').each(function(index) {
-                var thisWidth = $(this).width();
-                $(this).toggleClass('bg-red', thisWidth < 1000 && thisWidth >= 600);
-                $(this).toggleClass('bg-green', thisWidth < 600 && thisWidth >= 400);
-                $(this).toggleClass('bg-yellow', thisWidth < 400 && thisWidth >= 200);
-                $('output', this) // selects the output element in the current div
-                    .text('#' + index + ' element is ' + thisWidth + ' pixels wide. ');
+        $(function () { // ready function 
+            console.log('jQuery is active.'); // test
+            $(window).on('resize', function (event) {
+                $('div').each(function (index) {
+                    var thisWidth = $(this).width();
+                    $(this).toggleClass('bg-red', thisWidth < 1000 && thisWidth >= 600);
+                    $(this).toggleClass('bg-green', thisWidth < 600 && thisWidth >= 400);
+                    $(this).toggleClass('bg-yellow', thisWidth < 400 && thisWidth >= 200);
+                    $('output', this) // selects the output element in the current div
+                        .text('#' + index + ' element is ' + thisWidth + ' pixels wide. ');
+                });
             });
-        });
-        $(window).resize();
+            $(window).resize();
 
-    }); // end ready function
+        }); // end ready function
     </script>
 </head>
 

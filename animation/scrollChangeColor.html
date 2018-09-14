@@ -14,8 +14,8 @@
         // defer execution of code until jQuery/document.load function
         jQuery(function () {                 // begin ready function
             $('body').css('background-color', 'hsl(0,50%,70%');
-            $(window).scroll(function () {
-                var colorChangeSpeed = 10; // range from 2 to 10+
+            $(window).on('scroll', function () {
+                var colorChangeSpeed = 10; // range from 2 to 10+, maps # of pixels to 1deg hue change
                 var newColor = 'hsl(' + $(this).scrollTop()/colorChangeSpeed % 360 + ', 50%, 70%)'; 
                 console.log(newColor);
                 $('body').css('background-color', newColor);

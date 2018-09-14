@@ -24,7 +24,7 @@
                 // console.table(data);
                 console.log(data);
 
-                $peopleSection = $('<section id="people"/>').prepend('<h1>People</h1');
+                $peopleSection = $('<section id="people"/>').prepend('<h1>People</h1>');
                 // loop for each data item
                 $.each(data, function (count, item) {
                     console.log('Building person #', count);
@@ -33,18 +33,14 @@
 
                     // turn on display to block, change id
 
+                    // $clonedPerson.css('display', 'block');
+
                     // insert the data into the appropriate areas
 
-                    // append to $peopleSection
-
-                })
-                // insert the aggregate object
-                $('#main').append($peopleSection);
-            });
-        })                                  // end ready function
+                });
+            })                                  // end ready function
 
     </script>
-
     <style>
         .label {
             font-style: bold;
@@ -103,7 +99,8 @@
             registered on <span id="registered">~registered</span>. You are <span id="age">~age</span> years old and
             still owe <span id="balance">~balance</span>.
             <span id="about">~about</span>
-
+            <div class="friends" id='friends'>
+            </div>
         </div>
     </div>
 </body>
